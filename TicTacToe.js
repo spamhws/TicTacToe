@@ -227,6 +227,7 @@ function winTransparent(){
 }
 
 var timerId = setInterval(function () {
+  console.log(totalTurn);
   winCheck()
 }, 1)
 
@@ -234,11 +235,8 @@ function turnDisplay(){
   if ((totalTurn < 9) && (win == 0) && (turn === 1)){
     displayText = 'Now is X\'s turn:'
     arrFulfill(displayText);
-  } else if (win == 0){
+  } else if ((win == 0) && (totalTurn < 9)){
     displayText = 'Now is O\'s turn:'
-    arrFulfill(displayText);
-  } else if ((totalTurn >= 8) && (win = 0)){
-    displayText = 'Draw!'
     arrFulfill(displayText);
   } else if (win == 1){
     displayText = 'X won!'
@@ -252,6 +250,10 @@ function turnDisplay(){
     arrFulfill(displayText);
     clearTimeout(timerId);
     winTransparent()
+  } else if ((totalTurn == 9) && (win == 0)){
+    displayText = 'Draw!'
+    arrFulfill(displayText);
+    clearTimeout(timerId);
   }
 }
 
