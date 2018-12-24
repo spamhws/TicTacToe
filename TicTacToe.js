@@ -7,7 +7,13 @@ var six = document.querySelector("#six");
 var seven = document.querySelector("#seven");
 var eight = document.querySelector("#eight");
 var nine = document.querySelector("#nine");
+
+
 var body = document.querySelector("body");
+
+var jtron = document.querySelector('.jumbotron')
+
+var arr = [one, two, three, four, five, six, seven, eight, nine]
 
 var op = 0.1;
 var display = document.querySelector(".aboveBorder");
@@ -29,7 +35,7 @@ audioOne.volume = 0.3;
 audioTwo.volume = 0.3;
 audioThree.volume = 0.3;
 
-one.addEventListener('click', function(){
+function changeMarker(){
   if ((turn===1) && (this.textContent == '') && (win == 0)){
     this.textContent = 'X';
     turn = 2;
@@ -41,120 +47,11 @@ one.addEventListener('click', function(){
     totalTurn += 1;
     setTimeout(function() {turnDisplay()}, 15);
     }
-})
+}
 
-two.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-three.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-four.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-five.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-six.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-seven.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-eight.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
-nine.addEventListener('click', function(){
-  if ((turn===1) && (this.textContent == '') && (win == 0)){
-    this.textContent = 'X';
-    turn = 2;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-  } else if ((this.textContent == '') && (win == 0)){
-    this.textContent = 'O';
-    turn = 1;
-    totalTurn += 1;
-    setTimeout(function() {turnDisplay()}, 15);
-    }
-})
-
+for (var i = 0; i < arr.length; i++) {
+  arr[i].addEventListener('click', changeMarker)
+}
 
 function arrFulfill(text){
   var k = 0;
@@ -181,41 +78,30 @@ function arrFulfill(text){
 }
 
 function winCheck(){
-  console.log(win);
-  if ((one.textContent == 'X') && (two.textContent == 'X') && (three.textContent == 'X')){
-    win = 1
-  } else if ((four.textContent == 'X') && (five.textContent == 'X') && (six.textContent == 'X')){
-    win = 1
-  } else if ((seven.textContent == 'X') && (eight.textContent == 'X') && (nine.textContent == 'X')){
-    win = 1
-  } else if ((one.textContent == 'X') && (four.textContent == 'X') && (seven.textContent == 'X')){
-    win = 1
-  } else if ((two.textContent == 'X') && (five.textContent == 'X') && (eight.textContent == 'X')){
-    win = 1
-  } else if ((three.textContent == 'X') && (six.textContent == 'X') && (nine.textContent == 'X')){
-    win = 1
-  } else if ((one.textContent == 'X') && (five.textContent == 'X') && (nine.textContent == 'X')){
-    win = 1
-  } else if ((three.textContent == 'X') && (five.textContent == 'X') && (seven.textContent == 'X')){
-    win = 1
-  }
+  for (var i = 0; i < 2; i++) {
+    if (i == 0){
+      var n = 'X'
+    } else if (i == 1) {
+      var n = 'O'
+    }
 
-  if ((one.textContent == 'O') && (two.textContent == 'O') && (three.textContent == 'O')){
-    win = 2
-  } else if ((four.textContent == 'O') && (five.textContent == 'O') && (six.textContent == 'O')){
-    win = 2
-  } else if ((seven.textContent == 'O') && (eight.textContent == 'O') && (nine.textContent == 'O')){
-    win = 2
-  } else if ((one.textContent == 'O') && (four.textContent == 'O') && (seven.textContent == 'O')){
-    win = 2
-  } else if ((two.textContent == 'O') && (five.textContent == 'O') && (eight.textContent == 'O')){
-    win = 2
-  } else if ((three.textContent == 'O') && (six.textContent == 'O') && (nine.textContent == 'O')){
-    win = 2
-  } else if ((one.textContent == 'O') && (five.textContent == 'O') && (nine.textContent == 'O')){
-    win = 2
-  } else if ((three.textContent == 'O') && (five.textContent == 'O') && (seven.textContent == 'O')){
-    win = 2
+    if ((one.textContent == n) && (two.textContent == n) && (three.textContent == n)){
+      win = i+1
+    } else if ((four.textContent == n) && (five.textContent == n) && (six.textContent == n)){
+      win = i+1
+    } else if ((seven.textContent == n) && (eight.textContent == n) && (nine.textContent == n)){
+      win = i+1
+    } else if ((one.textContent == n) && (four.textContent == n) && (seven.textContent == n)){
+      win = i+1
+    } else if ((two.textContent == n) && (five.textContent == n) && (eight.textContent == n)){
+      win = i+1
+    } else if ((three.textContent == n) && (six.textContent == n) && (nine.textContent == n)){
+      win = i+1
+    } else if ((one.textContent == n) && (five.textContent == n) && (nine.textContent == n)){
+      win = i+1
+    } else if ((three.textContent == n) && (five.textContent == n) && (seven.textContent == n)){
+      win = i+1
+    }
   }
 }
 
@@ -227,8 +113,13 @@ function winTransparent(){
 }
 
 var timerId = setInterval(function () {
-  console.log(totalTurn);
+  // console.log(totalTurn);
   winCheck()
+  if (display.textContent === ''){
+    jtron.marginBottom = '100px';
+  } else {
+    jtron.marginBottom = 'auto';
+  }
 }, 1)
 
 function turnDisplay(){
