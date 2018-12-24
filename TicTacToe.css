@@ -1,0 +1,30 @@
+table{
+  font-size: 80px;
+  border: 2px solid;
+  margin: auto;
+  border-radius: 5px;
+  border-collapse: separate;
+}
+
+td{
+  padding: 0px;
+  text-align: center;
+  /* background-color: blue; */
+  width: 1.6em;
+  height: 1.6em;
+  /* border: 2px solid; */
+}
+
+.jumbotron{
+  padding-bottom: 35px;
+  /* margin-bottom: 15px; */
+}
+
+.jumbotron p{
+  font-size: 20px;
+}
+
+.aboveBorder{
+  text-align: center;
+  font-size: 40px;
+}
