@@ -7,7 +7,9 @@ var six = document.querySelector("#six");
 var seven = document.querySelector("#seven");
 var eight = document.querySelector("#eight");
 var nine = document.querySelector("#nine");
+var body = document.querySelector("body");
 
+var op = 0.1;
 var display = document.querySelector(".aboveBorder");
 var displayText = '';
 
@@ -217,6 +219,13 @@ function winCheck(){
   }
 }
 
+function winTransparent(){
+  setInterval(function(){
+    body.style.backgroundColor = 'rgba(0, 255, 0, '+op+')';
+    op += 0.02;
+  }, 10)
+}
+
 var timerId = setInterval(function () {
   winCheck()
 }, 1)
@@ -228,7 +237,7 @@ function turnDisplay(){
   } else if (win == 0){
     displayText = 'Now is O\'s turn:'
     arrFulfill(displayText);
-  } else if ((totalTurn >= 9) && (win = 0)){
+  } else if ((totalTurn >= 8) && (win = 0)){
     displayText = 'Draw!'
     arrFulfill(displayText);
   } else if (win == 1){
@@ -236,11 +245,13 @@ function turnDisplay(){
     u = 100; j = 300;
     arrFulfill(displayText);
     clearTimeout(timerId);
+    winTransparent()
   } else if (win == 2){
     displayText = 'O won!'
     u = 100; j = 300;
     arrFulfill(displayText);
     clearTimeout(timerId);
+    winTransparent()
   }
 }
 

@@ -1,4 +1,5 @@
 table{
+  background-color: white;
   font-size: 80px;
   border: 2px solid;
   margin: auto;
@@ -27,4 +28,8 @@ td{
 .aboveBorder{
   text-align: center;
   font-size: 40px;
+}
+
+body{
+  background-color: rgba(0, 255, 0, 0);
 }
