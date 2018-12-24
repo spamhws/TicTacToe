@@ -210,7 +210,7 @@ function winCheck(){
     win = 2
   } else if ((two.textContent == 'O') && (five.textContent == 'O') && (eight.textContent == 'O')){
     win = 2
-  } else if ((three.textContent == 'X') && (six.textContent == 'O') && (nine.textContent == 'O')){
+  } else if ((three.textContent == 'O') && (six.textContent == 'O') && (nine.textContent == 'O')){
     win = 2
   } else if ((one.textContent == 'O') && (five.textContent == 'O') && (nine.textContent == 'O')){
     win = 2
