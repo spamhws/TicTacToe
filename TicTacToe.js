@@ -47,6 +47,7 @@ function changeMarker(){
     totalTurn += 1;
     setTimeout(function() {turnDisplay()}, 15);
     }
+    winCheck();
 }
 
 for (var i = 0; i < arr.length; i++) {
@@ -112,15 +113,15 @@ function winTransparent(){
   }, 10)
 }
 
-var timerId = setInterval(function () {
-  // console.log(totalTurn);
-  winCheck()
-  if (display.textContent === ''){
-    jtron.marginBottom = '100px';
-  } else {
-    jtron.marginBottom = 'auto';
-  }
-}, 1)
+// var timerId = setInterval(function () {
+//   // console.log(totalTurn);
+//   winCheck()
+//   if (display.textContent === ''){
+//     jtron.marginBottom = '100px';
+//   } else {
+//     jtron.marginBottom = 'auto';
+//   }
+// }, 1)
 
 function turnDisplay(){
   if ((totalTurn < 9) && (win == 0) && (turn === 1)){
@@ -133,18 +134,18 @@ function turnDisplay(){
     displayText = 'X won!'
     u = 100; j = 300;
     arrFulfill(displayText);
-    clearTimeout(timerId);
+    winCheck()
     winTransparent()
   } else if (win == 2){
     displayText = 'O won!'
     u = 100; j = 300;
     arrFulfill(displayText);
-    clearTimeout(timerId);
+    winCheck()
     winTransparent()
   } else if ((totalTurn == 9) && (win == 0)){
     displayText = 'Draw!'
     arrFulfill(displayText);
-    clearTimeout(timerId);
+    winCheck()
   }
 }
 
